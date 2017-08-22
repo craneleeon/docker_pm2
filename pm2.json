@@ -15,6 +15,22 @@
         "production": true,
         "PORT": 9002
       } 
+    },
+    { "name": "IOS.wiki",
+      "script": "/app/IOS.wiki/server.js",
+      "cwd": "/app/IOS.wiki",
+      "env": {
+        "production": true,
+        "PORT": 9003
+      } 
+    },
+    { "name": "android.wiki",
+      "script": "/app/android.wiki/server.js",
+      "cwd": "/app/android.wiki",
+      "env": {
+        "production": true,
+        "PORT": 9004
+      } 
     }
   ]
 }
