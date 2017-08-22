@@ -1,16 +1,16 @@
 {
   "apps": [
     { "name": "backend.wiki",
-      "script": "/app/ws/back.wiki/server.js",
-      "cwd": "/app/ws/back.wiki",
+      "script": "/app/back.wiki/server.js",
+      "cwd": "/app/back.wiki",
       "env": {
         "production": true,
         "PORT": 9001
       } 
     },
     { "name": "frontend.wiki",
-      "script": "/app/ws/front.wiki/server.js",
-      "cwd": "/app/ws/front.wiki",
+      "script": "/app/front.wiki/server.js",
+      "cwd": "/app/front.wiki",
       "env": {
         "production": true,
         "PORT": 9002
