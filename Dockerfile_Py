@@ -1,0 +1,27 @@
+FROM keymetrics/pm2-docker-alpine:latest
+
+RUN apk update && apk add --no-cache bash \
+    make \
+    gcc \
+    python \
+    python3 && \
+    python -m ensurepip && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    rm -r /root/.cache
+
+# RUN echo "alias python=python3" >> ~/.bashrc
+# RUN echo "alias pip=pip3" >> ~/.bashrc
+
+# COPY pm2.json /app/
+VOLUME ["/app"]
+
+ENV NPM_CONFIG_LOGLEVEL warn
+ENV pm2_config pm2.json
+
+# CMD [ "pm2-docker", "start", "/app/${pm2_config}" ]
+# CMD [ "sh", "-c", "echo ${pm2_config}", "|", "pm2-docker", "start" ]
+CMD [ "sh", "-c", "pm2-docker start /app/${pm2_config}" ]
+
