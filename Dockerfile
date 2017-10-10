@@ -1,6 +1,11 @@
 FROM keymetrics/pm2-docker-alpine:latest
 
-# COPY pm2.json /app/
+RUN apk update && apk add --no-cache bash \
+    tzdata 
+    # rm -r /root/.cache
+
+CMD ["cp", "/usr/share/zoneinfo/Asia/Shanghai", "/etc/localtime"] 
+
 VOLUME ["/app"]
 
 ENV NPM_CONFIG_LOGLEVEL warn
