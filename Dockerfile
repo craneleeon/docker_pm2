@@ -4,7 +4,8 @@ RUN apk update && apk add --no-cache bash \
     tzdata 
     # rm -r /root/.cache
 
-CMD ["cp", "/usr/share/zoneinfo/Asia/Shanghai", "/etc/localtime"] 
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
+RUN echo Asia/Shanghai > /etc/timezone 
 
 VOLUME ["/app"]
 
